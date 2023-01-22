@@ -1,0 +1,179 @@
+#tete{
+    height:50px ;
+    background: white;
+    position: relative;
+    width: 100vmax;
+    }
+    .h{
+    position: absolute;
+    display: block;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    
+    }
+    #ico{
+        background:url(h1.jpg);
+        background-repeat: round; 
+        width:40px; height: 40px;
+    }
+    #actualite{
+        top: 10px;
+        left: 70px;
+        width: 60px;
+        height: 50px;
+    }
+    
+    #nouveaute{
+        top: 10px;
+        left: 150px;
+        width: 60px;
+        height: 50px;
+    }
+    #contact{
+        top: 10px;
+        left: 260px;
+        width: 60px;
+        height: 50px;
+    }
+    
+    #connexion{
+    top: 5px;
+        left: 1230px;
+    }
+   
+    a{
+        color: crimson;
+        font-size: 20px;
+    }
+    a:hover{
+    color: darkorchid;
+    }
+    #img{
+       left: 0px;
+        height: 750px;
+        right: 0px;
+        width: 100vmax;
+        position:  absolute;
+        animation-name: trans ;
+        animation-duration:7s;
+        animation-iteration-count:infinite ;
+        animation-timing-function:steps(0.2,end);
+    }
+    @keyframes trans {
+        0%{background:url(e7d67f05080e.jpg);background-repeat: round ; width: 100vmax; height: 630px;}
+        50%{background:url(i20170707133303minceurnasserjjjjj.jpg);background-repeat: round; width: 100vmax; height: 630px;}
+        100%{background:url(23334126_1571457389596556_6096991927427455628_o.jpg); background-repeat: round;width: 100vmax; height: 630px;}
+     
+    }
+    #bconx{
+        position: absolute;
+    background: palevioletred;
+    color: white;
+    width: 220px;
+    height:55px;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    left: 550px;
+    top: 500px;
+    }
+    #bconx:hover{
+        background-color: white;
+        color: purple;
+    }
+    #ann{
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background-color: rgb(255, 255, 255);
+        left: 625px;
+        top: 665px;
+        transition:2s all 0.1s;
+        border-radius: 50px;
+    }
+    #ann:hover {
+        transform:translateY(-20px);
+    }
+    #titre{
+        position: absolute;
+        top: 150px;
+       left: 60px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 80px;
+        color:palevioletred ;
+        font-style: unset;
+        border: rgb(255, 255, 255) solid;
+    }
+    #bloc{
+        position: absolute;
+        background-color: white;
+        width: 70px;
+        height: 70px;
+        left: 625px;
+        top: 690px;
+    }
+    #nov{
+color: slategray;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .piedpage{
+        background-color: palevioletred    ;
+        width: 100vmax ;
+        height: 30vmin;
+        position: relative;
+        top: 710px;
+    }
+    .pied{
+        position: relative;
+        width: 100vmax;
+        height: 20px;
+    }
+    #face{
+    position: absolute;
+    background:url(hhjb.ico);
+    background-repeat: round; 
+    width:40px; height: 40px;
+    top: 10px;
+    left: 20px;
+    }
+    #resp{
+        top: 15px;
+        text-align: center;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #adr{
+        top: 20px;
+        text-align: center;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #tel{
+        top: 25px;
+        text-align: center;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #copyr{
+        top: 30px;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #cont{
+        color: slategray;
+            }

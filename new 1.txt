@@ -1,0 +1,452 @@
+<html>
+<head>
+<title></title>
+<link href=".css" rel="stylesheet">
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<div class="piedpage">
+    <div class="pied" ><a href="https://www.facebook.com/centrecoquette/?ref=br_rs"><div id="face"></div></a></div>
+    <div  class="pied" id="resp"> <h3>Responsable de centre : Mme Wafe Fekih Chammem </h3> </div>
+    <div  class="pied" id="adr"><h3> Siege social : KasrHelal, Monastir à coté de restaurant Copa Gabana au-dessus de Lamia Ayed 2ème étage.</h3></div>
+    <div  class="pied" id="tel"><h3> Téléphones : 96288035 / 58695769.</h3></div>
+    <div  class="pied" id="copyr"><h5> &copy; hedia smida 2020</h5></div>
+</div>
+
+
+
+
+
+
+
+   var divaj = document.createElement('div');
+   divaj.id="ajouterrep"
+    divaj.style.position="absolute";
+    divaj.style.width="110px";
+    divaj.style.height="100px";
+    divaj.style.top="550px";
+    divaj.style.left="790px";
+divaj.style.background-color="red";
+
+document.body.appendChild(divaj);
+    //<div style="position:absolute; width:110px; height:100px; background:url(3440904-add-ecommerce-favorite-heart-love-plus_107518.ico); left:790px; top:550px; "> </div>
+   
+
+
+
+
+
+
+
+
+
+   if (isset($_POST['nomrep']) && isset($_POST['qte']) && isset($_POST['calor']) && isset($_POST['img_rep'])  ){
+
+    $query="INSERT INTO`repas`(`nom_rep`,`calor_rep`,`qte_rep`,`img_rep`,`cin`)
+VALUES ('".$_Post['nomrep']."','".$_POST['calor'] ."','".$_POST['qte']."','".$_POST['img_rep']."','".$result."')";
+    $result = mysqli_query($con,$query);
+
+echo "bien inserer";
+
+}
+else {
+
+    echo"erreur";
+
+}
+
+
+
+
+
+
+
+
+
+$sql1=" SELECT * FROM repas  WHERE nom_rep='".$_POST['nomrep'] ."' and calor_rep= '".$_POST['calor'] ."' and qte_rep= '".$_POST['qte_rep'] ."'  ;";
+
+$result = mysqli_query($con,$sal1);
+
+
+if ($result->num_rows > 0) {
+
+    echo "<div id='message' > <p> repas existe :) </p>  </div> ";
+
+}
+else
+{}
+
+
+
+
+
+
+<?php 
+$email= $_GET['email'];
+require('database_connection.php');
+try{
+    if (isset($_POST['botaj']) ){
+
+    //    $file_name=$_FILES['img_rep']['name'];
+     //   $file_extension=strchr($file_tmp_name, '.');
+      //  $file_tmp_name =$_FILES['img_rep']['tmp_name'];
+       // $file_dist= 'photo/'.$file_name ;
+      //  move_uploaded_file($file_tmp_name, $file_dist);
+    $sql="SELECT * FROM compte_user WHERE email='".$email."' ;";
+
+    if($result = mysqli_query($con,$sql))
+    {
+        $row=mysqli_fetch_assoc($result);
+        
+    $cin= $row['cin'];
+
+
+$file=addcslashes(file_get_contents($_FILES["img_rep"]["tmp_name"]));
+
+    $query="INSERT INTO `repas`
+ VALUES (0,'".$_POST['nomrep'] ."','".$_POST['calor'] ."','".$_POST['qte']."','$file','".$cin."')";
+ 
+  if(  $result = mysqli_query($con,$query))
+{
+ echo "bien inserer";
+
+}
+else {echo "errer ";}
+    }
+}
+}
+
+
+catch (Exception $e){
+echo "houdhoud" ;
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<input type="time" min="09:00" max="17:00" step="60" value="11:00" /> <br />
+
+
+
+
+<button onclick="window.print()">Print this page</button>
+
+
+(function() {
+    
+    // get references to select list and display text box
+    var sel = document.getElementById('patiente');
+    var el = document.getElementById('idp');
+
+
+    function getSelectedOption(sel) {
+        var opt;
+        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+            opt = sel.options[i];
+            if ( opt.selected === true ) {
+                break;
+            }
+        }
+        return opt;
+    }
+
+    // assign onclick handlers to the buttons
+    document.getElementById('showVal').onclick = function () {
+        
+        el.value = sel.value;    
+    }
+    
+}());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+
+require('database_connection.php');
+
+    if (isset($_POST['ajouter']) ){
+
+        $file_tmp_name =$_FILES['image']['tmp_name'];
+
+ 
+
+$file=addslashes(file_get_contents($_FILES["image"]['tmp_name']));
+
+    $query="INSERT INTO `image`
+ VALUES ('$file')";
+ 
+  if(  $result = mysqli_query($con,$query))
+{
+ echo "bien inserer";
+
+}
+else {echo "errer ";}
+
+
+    }
+
+?>
+<?php
+
+
+?>
+
+<?php
+
+echo "<form method='POST' action=''  enctype='multipart/form-data'>
+<input type='file' name='image' >
+<button name='ajouter' >ajouter</button> </form>";
+echo" <table><tr>image</tr>";
+    $sql = "SELECT * FROM `image`;";
+
+    if($result = mysqli_query($con,$sql))
+    {
+      $i = 0;
+      while($row = mysqli_fetch_assoc($result))
+      {
+
+    echo '<td class="td-left"><img src="data:image;base64,'.base64_encode($row['image']).'" style=" width:100px ; height:100px;" /> </td>';
+      }
+
+      echo"</table>";
+    }
+?>
+
+
+<html>
+<head>
+
+</head>
+<body>
+
+
+<select id="cal_rep" name="type_rep"  style="
+
+" required >
+
+<?php
+require('database_connection.php');
+echo "houd0";
+$repas = [];
+$sql = "SELECT type_rep FROM `type_repas`;";
+echo "houd";
+if($result = mysqli_query($con,$sql))
+{
+  $i = 0;
+  echo "houd2";
+  while($row = mysqli_fetch_assoc($result))
+{
+   echo "<option  value='".$row['type_rep']."' >".$row['type_rep']."</option>\n";
+   $i++;
+}
+}
+ 
+// on ferme la connexion à mysql
+mysqli_close();
+?>
+
+
+
+
+</select><br>
+
+
+
+<table>
+<tr> type </tr>
+
+<?php
+require('database_connection.php');
+echo "houd0";
+$repas = [];
+$sql = "SELECT type_rep FROM `type_repas`;";
+echo "houd";
+if($result = mysqli_query($con,$sql))
+{
+  $i = 0;
+  echo "houd2";
+  while($row = mysqli_fetch_assoc($result))
+{
+   echo "<td>".$row['type_rep']."</td>";
+   $i++;
+}
+}
+ 
+// on ferme la connexion à mysql
+
+?>
+
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $sql3="SELECT *  FROM consultation  WHERE  id_rdv_sean=".$row['sean'].";";
+
+    if($result3 = mysqli_query($con,$sql3)){
+        $row3 = mysqli_fetch_assoc($result3);
+echo"<td> ".$row3['date_cons']." </td>";
+echo"<td><table>";
+
+echo" </td></tr></table></td>";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+ 
+  $("#patiente").change(function(){
+    $("fieldset").show();
+    $('#' + $(this).val()).show();
+  });
+});
+
+
+(function() {
+    
+    // get references to select list and display text box
+    var sel = document.getElementById('patiente');
+    var el = document.getElementById('idp');
+
+
+    function getSelectedOption(sel) {
+        var opt;
+        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+            opt = sel.options[i];
+            if ( opt.selected === true ) {
+                break;
+            }
+        }
+        return opt;
+    }
+
+    // assign onclick handlers to the buttons
+    document.getElementById('showVal').onclick = function () {
+        
+        el.value = sel.value;    
+    }
+    
+}());
+</script>
+
+
+
+
+
+
+
+
+
+
+<?php
+
+$req9="SELECT * FROM inscrit WHERE id_fiche=".$_GET['id_fiche'].";";
+if($result9 = mysqli_query($con,$req9))
+{
+    $row9 = mysqli_fetch_assoc($result9);
+
+    $req7="SELECT * FROM seance WHERE id_cure=".$row9['id_cure'].";";
+    if($result7 = mysqli_query($con,$req7)){
+
+        $i = 0;
+ 
+        while($row7 = mysqli_fetch_assoc($result7))
+      {
+         echo "<td ><input type='checkbox' id='check".$i."' name='c".$i."' value='".$rows7['id_seance']."'></td>";
+         echo "<td ><label for='check".$i."'> ".$row7['type_sean']."</td>";
+         $i++;
+      }
+
+
+}
+
+}
+
+?>
+
+
+
+
+<style>
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+</style>
+<style>
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+</style>
